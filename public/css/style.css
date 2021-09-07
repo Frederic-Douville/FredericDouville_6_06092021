@@ -1,0 +1,79 @@
+/*Primary colors*/
+/*Secondary colors*/
+* {
+  font-family: DM_sans;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "DM_sans";
+  src: url(../font/DM_Sans/DMSans-Regular.ttf) format("truetype");
+}
+.banner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  justify-self: flex-start;
+  width: 66%;
+}
+
+.nav-ctn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.nav-link {
+  margin: 0 0.5em 0 0.5em;
+}
+
+.photographer-tbn-img_ctn {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.photographer-tbn-img_ctn img {
+  object-fit: cover;
+}
+
+.img_MK {
+  width: 400px;
+  height: 400px;
+  margin: 20px 0 0 0;
+}
+.img_ERW {
+  width: 280px;
+  height: 280px;
+}
+.img_TG {
+  width: 600px;
+  height: 600px;
+  margin: 25px 0 0 0;
+}
+.img_NB {
+  width: 650px;
+  height: 650px;
+  margin: 50px 0 0 0;
+}
+.img_RD {
+  width: 800px;
+  height: 800px;
+  margin: 425px 0 0 75px;
+}
+.img_MN {
+  width: 350px;
+  height: 350px;
+  margin: 50px 0 0 0;
+}
+
+/*# sourceMappingURL=style.css.map */

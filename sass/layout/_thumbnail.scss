@@ -1,0 +1,42 @@
+.photographer-tbn-img_ctn{
+    height:200px;
+    width:200px;
+    border-radius: 50%;
+    @include flex_dlc(row,center,center);
+    overflow: hidden;    
+    & img{        
+        object-fit: cover;
+    }
+}
+
+.img{
+    &_MK{
+        width:400px;
+        height:400px;
+        margin:20px 0 0 0;
+    }
+    &_ERW{
+        width:280px;
+        height:280px;
+    }
+    &_TG{
+        width:600px;
+        height:600px;
+        margin:25px 0 0 0;
+    }
+    &_NB{
+        width:650px;
+        height:650px;
+        margin:50px 0 0 0;
+    }
+    &_RD{
+        width:800px;
+        height:800px;
+        margin:425px 0 0 75px;
+    }
+    &_MN{
+        width:350px;
+        height:350px;
+        margin:50px 0 0 0;
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "fisheye",
+  "version": "1.0.0",
+  "description": "Projet 6 OPC",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frederic-Douville/FredericDouville_6_06092021.git"
+  },
+  "author": "Frederic Douville",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frederic-Douville/FredericDouville_6_06092021/issues"
+  },
+  "homepage": "https://github.com/Frederic-Douville/FredericDouville_6_06092021#readme"
+}

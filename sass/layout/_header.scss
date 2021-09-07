@@ -1,0 +1,14 @@
+.banner{
+    @include flex_dlc(row,center,space-around);
+    justify-self: flex-start;
+    width:66%;
+}
+
+.nav{
+    &-ctn{
+    @include flex_dlc(row,center,space-around);
+    }
+    &-link{
+        margin:0 0.5em 0 0.5em;
+    }
+}
