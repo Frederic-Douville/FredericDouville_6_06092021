@@ -6,8 +6,11 @@
 @import "./base/base";
 @import "./base/typography";
 
-@import "./components/buttons";
+@import "./components/tag";
+@import "./components/contentlink";
+
 
 @import "./layout/header";
+@import "./layout/mainctn";
 @import "./layout/thumbnail";
 

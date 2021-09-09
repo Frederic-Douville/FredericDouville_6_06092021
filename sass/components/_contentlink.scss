@@ -1,0 +1,20 @@
+.content-ctn{
+    display:none;
+    z-index: 2;
+    position:fixed;
+    left:45%;
+    background-color: $colorRed-2;
+    border-radius: 5px;    
+    width:182px;
+    height:30px;
+    &-2{
+        width: 100%;
+        height: 100%;
+        @include flex_dlc(row,center,center);
+        & a{
+            @include font_CWStSi(black,500,normal,18px);                  
+            text-align: center;
+            line-height: 23,44px;       
+        }
+    }
+}

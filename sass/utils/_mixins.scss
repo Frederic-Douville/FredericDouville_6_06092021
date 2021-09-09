@@ -4,3 +4,11 @@
     align-items: $line;
     justify-content: $content;
 }
+
+@mixin font_CWStSi($color,$weight,$style,$size){
+    color:$color;
+    font-weight:$weight;
+    font-style:$style;
+    font-size: $size;
+}
+

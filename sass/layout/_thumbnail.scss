@@ -1,14 +1,3 @@
-.photographer-tbn-img_ctn{
-    height:200px;
-    width:200px;
-    border-radius: 50%;
-    @include flex_dlc(row,center,center);
-    overflow: hidden;    
-    & img{        
-        object-fit: cover;
-    }
-}
-
 .img{
     &_MK{
         width:400px;
@@ -38,5 +27,65 @@
         width:350px;
         height:350px;
         margin:50px 0 0 0;
+    }
+}
+
+.photographer{
+    &-ctn{
+        @include flex_dlc(column,center,center);
+        width: 33%;
+        min-width: 300px;
+        margin:2em 0 2em 0;
+    }
+    &-tbn{
+        &-link{
+            @include flex_dlc(column,center,center);
+        }
+        &-img_ctn{
+            height:200px;
+            width:200px;
+            border-radius: 50%;
+            @include flex_dlc(row,center,center);
+            overflow: hidden;
+            margin-bottom: 1em;    
+            & img{        
+                object-fit: cover;
+            }
+        }
+        &-name{
+            @include font_CWStSi($colorRed-2,400,normal,36px);
+            line-height: 46.87px;
+            text-align: center;
+            margin: 0;
+            
+        }
+    }
+    &-desc{
+        @include flex_dlc(column,center,center);
+        &-place{
+            @include font_CWStSi($colorRed-1,400,normal,13px);            
+            line-height: 16.93px;
+            padding: 0.2em 0 0.2em 0;
+        }
+        &-phrase{
+            @include font_CWStSi(black,400,normal,10px);
+            line-height: 13.02px;
+            padding: 0.2em 0 0.2em 0;
+        }
+        &-price{
+            @include font_CWStSi($colorGrey-4,400,normal,9px);
+            line-height: 11,72px;
+            padding: 0.2em 0 0.2em 0;
+        }
+    }
+    &-tag-ctn{
+        @include flex_dlc(row,center,center);
+        margin-top: 0.5em;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .photographer-ctn{
+        width:100%;        
     }
 }

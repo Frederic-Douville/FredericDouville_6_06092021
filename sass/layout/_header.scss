@@ -1,14 +1,75 @@
 .banner{
+    position: absolute;
     @include flex_dlc(row,center,space-around);
     justify-self: flex-start;
-    width:66%;
+    width:60%;
+    margin-top:2em;
+}
+
+.logo-ctn svg{
+    width:200px;
+    height:50px;
 }
 
 .nav{
     &-ctn{
     @include flex_dlc(row,center,space-around);
+    flex-wrap: wrap;    
     }
     &-link{
-        margin:0 0.5em 0 0.5em;
+        margin:0 0.3em 0 0.3em;
+    }
+}
+
+.mobile-title{
+    display:none;
+}
+
+@media screen and (max-width:1200px){
+    .banner{
+        flex-direction: column;
+        width:100%;
+    }
+    
+    .mobile-title{
+        display:block;
+        @include font_CWStSi($colorRed-1,400,normal,36px);
+    }
+    .logo-ctn{
+        @include flex_dlc(row,center,space-around);
+        width:100%;
+        margin-bottom: 2em;
+       
+    }
+}
+
+@media screen and (max-width: 768px){
+    .banner{
+        width:100%;
+    }
+    .mobile-title{
+        font-size: 14px;
+    }
+    
+    .nav-ctn{
+        justify-content: center;        
+    }
+
+    .logo-ctn svg{
+        width:150px;
+        height:37.5px;
+    }
+    
+}
+
+/*Partie page personnelle des photographes*/
+
+
+
+.logo-ctn-page{
+    margin: 2em 0 0 3em; 
+    & svg{
+        width:200px;
+        height:50px;        
     }
 }
