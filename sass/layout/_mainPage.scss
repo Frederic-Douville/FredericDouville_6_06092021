@@ -1,0 +1,86 @@
+.photos-option-ctn{
+    @include flex-dlc(row,flex-start,flex-start);
+}
+
+.option{
+    &-phrase{
+        @include font_CWStSi(black,700,normal,18px);
+        margin-top: 10px;
+    }
+    &-btn{
+        @include flex-dlc(column,flex-start,flex-start);
+        background-color: $colorRed-1;
+        border-radius: 5px;
+        margin: 0 0 0 1em;
+        width: 170px;
+        &-first{
+            @include flex-dlc(row,center,space-between);
+            width: 90%;
+        }
+        &-choice{
+            @include font_CWStSi(white,700,normal,18px);
+            padding:15px 0 15px 15px;
+            width:100%;
+            &:hover{
+                cursor:pointer;
+            }
+        }
+        &-arrow{
+            transform:rotate(180deg);
+            &:hover{
+                cursor:pointer;        
+            }
+        }
+        &-line{
+            background-color: white;
+            width: 160px;
+            height:1px;
+            margin:0 5px 0 5px;
+        }
+    }
+}
+
+.option-dropdown{
+    display:none;
+}
+
+
+/*Photos section*/
+
+.photo{
+    &-list-ctn{
+        @include flex-dlc(row,flex-start,space-between);
+        flex-wrap: wrap;
+        margin-top: 2em;
+    }
+    &-ctn{
+        @include flex-dlc(column,center,center);
+        width:33%;
+        margin:1em 0 1em 0;
+    }
+}
+
+.img{
+    &-ctn{        
+        & img{
+            width:350px;
+            height:300px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    }
+    &-desc{
+        @include flex-dlc(row,center,space-between);
+        width:350px;
+    }
+    &-title{
+        @include font_CWStSi($colorRed-1,400,normal,24px);
+    }
+    &-notation{
+        @include flex-dlc(row,center,space-between);
+        & span{
+            @include font_CWStSi($colorRed-1,500,normal,24px);
+            margin-right: 0.5em;
+        }
+    }
+}

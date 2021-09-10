@@ -1,0 +1,79 @@
+.logo-ctn-page{
+    margin:2em 0 2em 0;
+    & svg{
+        width:200px;
+        height:50px;        
+    }
+}
+
+.photographer-banner{
+    @include flex_dlc(row,center,space-between);    
+    height:280px;    
+    background-color: $colorGrey-1;
+    border-radius: 5px;
+    margin-bottom: 3em;
+    &-desc{
+        @include flex_dlc(row,flex-start,space-between);
+        height:100%;        
+    }
+    &-ID{
+        @include flex_dlc(column,flex-start,center); 
+        height: 100%;            
+    }
+    &-name{
+        @include font_CWStSi($colorRed-2,400,normal,64px);
+        line-height: 64px;
+        margin:32px 0 6px 32px;
+    }   
+    &-place{
+        @include font_CWStSi($colorRed-1,400,normal,24px);
+        line-height: 31px;
+        margin:6px 0 6px 32px;
+    }
+    &-phrase{
+        @include font_CWStSi($colorGrey-2,400,normal,18px);
+        line-height: 23px;
+        margin:6px 0 6px 32px;
+    }
+    &-tag{
+        @include flex-dlc(row,center,flex-start);
+        margin:6px 0 6px 32px;
+    }
+}
+
+.banner{
+    &-button-ctn{
+        @include flex-dlc(column,center,flex-start);
+        height: 100%;
+
+    }
+    &-btn{
+        @include flex-dlc(row,center,center);
+        @include font_CWStSi(white,700,normal,20px);
+        background-color: $colorRed-1;        
+        border-radius: 5px;
+        width:170px;
+        height:69px;
+        margin-top:3em;
+        &:hover{
+            background-color: $colorRed-2;
+            color: black;
+            cursor: pointer;
+        }
+    }
+    &-img-ctn{
+        margin-right: 4em;
+    }
+    &-img{
+        @include flex_dlc(row,center,center);
+        width: 175px;
+        height: 175px;
+        border-radius: 50%;        
+        overflow: hidden;          
+        & img{ 
+            width:200px;
+            height:200px;       
+            object-fit: cover;
+        }
+    }
+}
