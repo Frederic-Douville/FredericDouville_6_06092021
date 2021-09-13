@@ -45,7 +45,9 @@
     &-button-ctn{
         @include flex-dlc(column,center,flex-start);
         height: 100%;
-
+        &-mobile{
+            display: none;
+        }
     }
     &-btn{
         @include flex-dlc(row,center,center);
@@ -77,3 +79,74 @@
         }
     }
 }
+
+@media screen and (max-width: 991px){
+    .photographer-banner{
+        height:200px;
+        &-name{
+            font-size:36px;
+            line-height: 46px;
+            margin:32px 0 6px 32px;
+        }   
+        &-place{
+            font-size: 13px;
+            line-height: 17px;
+            margin:6px 0 6px 32px;
+        }
+        &-phrase{
+            font-size: 13px;
+            line-height: 17px;
+            margin:6px 0 6px 32px;
+        }
+        &-tag{            
+            margin:6px 0 6px 0;
+        }
+    }
+    .banner{
+        &-btn{
+        font-size:18px;
+        width:150px;
+        height:60px;
+        }
+        &-img{
+            width:120px;
+            height:120px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .logo-ctn-page{
+        margin:1.5em 0 0 0;
+    }
+    .photographer-banner{
+        background-color: white;
+        .photographer-banner{
+            height:200px;
+            &-name{
+                margin:32px 0 6px 0;
+            }   
+            &-place{
+                margin:6px 0 6px 0;
+            }
+            &-phrase{                
+                margin:6px 0 6px 0;
+            }
+        }
+    }
+
+    .banner{
+        &-button-ctn{
+            display:none;
+        }
+        &-btn{
+            width:170px;
+            height:40px;
+        }
+        &-img{
+            width:100px;
+            height:100px;            
+        }
+    }
+}
+

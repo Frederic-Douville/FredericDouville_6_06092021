@@ -1,0 +1,132 @@
+.modalForm-ctn{
+    display: none;
+    width: 100%;
+    height:100%;
+    background-color: rgba(255,255,255,0.6);
+    z-index: 3;
+    position: fixed;
+    left:0;
+    top:0;
+    overflow: auto;
+}
+
+.form{
+    &-ctn{
+        @include flex-dlc(column,center,flex-start);
+        width: 100%;
+        height:100%;
+    }
+    &-body{
+        @include flex-dlc(column,flex-start,center);
+        background-color: $colorRed-2;
+        width: 669px;        
+        border-radius: 5px;
+        margin: 20px 0 20px 0;
+    }
+    &-title-ctn{
+        @include flex-dlc(row,flex-start,space-between);
+        width: 100%;
+        & h1{
+            @include font_CWStSi(black,400,normal,64px);
+            line-height: 83px;
+            margin:10px 0 0 25px;            
+        }
+        & svg{
+            width:42px;
+            height:42px;
+            margin:25px 25px 0 0;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    &-input{
+        width:100%;
+    }
+    &-data{
+        margin:0 20px 0 20px;
+        & label{
+            @include font_CWStSi($colorGrey-5,400,normal,36px);
+        }
+        & .input-text{
+            width:100%;
+            height: 47px;
+            border-radius: 5px;
+            border-style: none;
+            @include font_CWStSi(black,400,normal,36px);
+        }
+        & textarea{
+            width: 100%;
+            border-radius: 5px;
+            border-style: none;
+            @include font_CWStSi(black,400,normal,36px);
+        }
+    }
+    &-error{
+        @include font_CWStSi($colorRed-1,400,normal,18px);
+    }
+    &-button{
+        background-color: $colorRed-1;
+        @include font_CWStSi(white,700,normal,18px);
+        border-radius: 5px;
+        border-style: none;
+        width: 170px;
+        height:69px;
+        margin:10px 0 10px 0;
+        &:hover{
+            cursor: pointer;            
+        }
+    }
+
+}
+
+
+
+@media screen and (max-width: 768px){
+    .form{
+        &-body{
+            width:100%;
+            height: 100%;
+            margin:0;
+        }
+        &-title-ctn{
+            & h1{
+                font-size: 36px; 
+                line-height: 47px;              
+                margin:10px 0 0 20px;            
+            }
+            & svg{
+                width:18.5px;
+                height:18.5px;
+                margin:25px 20px 0 0;              
+            }
+        }
+        &-data{
+            margin:10px 20px 10px 20px;
+            & label{
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+            & .input-text{
+                font-size: 24px;
+            }
+            & textarea{
+                font-size: 24px;
+                rows:5;
+            }
+            &-button{
+                @include flex-dlc(row,center,center);
+            }
+        }
+        &-error{
+            font-size: 14px;
+        }
+        &-button{                       
+            width: 170px;
+            height:35px;
+            margin:10px 0 10px 0;
+           
+        }
+
+    }
+}

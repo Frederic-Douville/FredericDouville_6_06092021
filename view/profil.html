@@ -39,7 +39,7 @@
 					</div>
 				</div>
 				<div class="banner-button-ctn">
-					<div class="banner-btn">Contactez moi</div>
+					<div class="banner-btn">Contactez-moi</div>
 				</div>
 			</div>			
 			<div class="banner-img-ctn">
@@ -65,6 +65,63 @@
 					<div class="option-btn-choice">Date</div>
 					<div class="option-btn-line"></div>
 					<div class="option-btn-choice">Titre</div>
+				</div>
+			</div>
+		</section>
+		<div class="likePrice-ctn">
+			<div class="likePrice-ctn-2">
+				<div class="like-ctn">
+					<span class="like-total">123000</span>
+					<svg viewBox="0 0 20 19"  xmlns="http://www.w3.org/2000/svg">
+					<path d="M10 18.35L8.55 17.03C3.4 12.36 0 9.28 0 5.5C0 2.42 2.42 0 5.5 0C7.24 0 8.91 0.81 10 2.09C11.09 0.81 12.76 0 14.5 0C17.58 0 20 2.42 20 5.5C20 9.28 16.6 12.36 11.45 17.04L10 18.35Z"/>
+					</svg>
+				</div>
+				<div class="price-ctn">
+					<span class="price-desc">300&euro;/jour</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="banner-button-ctn-mobile">
+			<div class="banner-btn">Contactez-moi</div>
+		</div>
+
+		<section class="modalForm-ctn">
+			<div class="form-ctn">
+				<div class="form-body">
+					<div class="form-title-ctn" >
+						<h1 class="form-title">Contactez-moi<br/> Mimi Keel</h1>
+						<svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M42 4.23L37.77 0L21 16.77L4.23 0L0 4.23L16.77 21L0 37.77L4.23 42L21 25.23L37.77 42L42 37.77L25.23 21L42 4.23Z" fill="white"/>
+						</svg>
+					</div>
+					<form class="form-input" id="form" action="profil.html" method="get" onsubmit="return validate(e);">
+						<div class="form-data">
+							<label for="firstName">Prénom</label><br />
+							<input class="input-text" id="firstName" name="firstName" type="text"/><br />
+							<span class="form-error" id="firstError"></span>
+						</div>
+						<div class="form-data">
+							<label for="lastName">Nom</label><br />
+							<input class="input-text" id="lastName" name="lastName" type="text"/><br />
+							<span class="form-error" id="lastError"></span>
+						</div>	
+						<div class="form-data">
+							<label for="email">Email</label><br />
+							<input class="input-text" id="email" name="email" type="email"><br />
+							<span class="form-error" id="emailError"></span>
+						</div>
+						<div class="form-data">
+							<label for="message">Votre message</label><br />
+							<textarea class="input-msg" id="message" name="message" type="text" rows="3"></textarea><br />
+							<span class="form-error" id="msgError"></span>
+						</div>
+						<div class="form-data form-data-button">
+							<div>
+							<input class="form-button" id="submit-btn" type="submit" value="Envoyer"/> 
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</section>
@@ -155,6 +212,7 @@
 				</div>
 			</div>
 		</section>
+		
 	</main>
 </div>
 	
