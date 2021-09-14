@@ -4,13 +4,16 @@
     padding:0 0.5em 0 0.5em;
     text-align: center;
     border: solid $colorGrey-3 0.5px;
-    border-radius:11px;
+    border-radius:11px;    
     &:hover{
         background-color: $colorRed-1;
         border-color: $colorRed-1;
         color:white;
         cursor: pointer;
     } 
+    &-nav{
+        margin:0.5em 0.25em 0.5em 0.25em;
+    }
     &-tbn{
         margin:0 0.25em 0 0.25em;
     }
@@ -26,3 +29,4 @@
         font-size: 13px;
     }
 }
+

@@ -99,7 +99,7 @@
             margin:6px 0 6px 32px;
         }
         &-tag{            
-            margin:6px 0 6px 0;
+            margin:6px 0 6px 0;            
         }
     }
     .banner{
@@ -111,6 +111,10 @@
         &-img{
             width:120px;
             height:120px;
+            & img{
+                width:150px;
+                height:150px;
+            }
         }
     }
 }
@@ -134,18 +138,31 @@
             }
         }
     }
-
+   
     .banner{
         &-button-ctn{
             display:none;
+            &-mobile{
+                @include flex-dlc(row,center,center);
+                width:90%;
+                position: fixed;                
+                bottom:10px;
+            }
         }
         &-btn{
             width:170px;
             height:40px;
         }
+        &-img-ctn{
+           margin: 0 0.5em 0 -3em;
+        }
         &-img{
-            width:100px;
-            height:100px;            
+            width:90px;
+            height:90px;
+            & img{
+                width:125px;
+                height:125px;
+            }            
         }
     }
 }

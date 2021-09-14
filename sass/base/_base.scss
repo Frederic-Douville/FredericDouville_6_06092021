@@ -12,3 +12,8 @@ a{
     margin:auto;
 }
 
+@media screen and (max-width: 768px){
+    .blocpage-ctn{
+        width:100%;
+    }    
+}
