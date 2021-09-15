@@ -1,5 +1,10 @@
-.main-index {
-    @include flex_dlc(column,flex-end,space-between);
+.main{
+    &-index {
+        @include flex_dlc(column,center,center);
+    }
+    &-body{
+        @include flex_dlc(column,flex-end,space-between);
+    }
 }
 
 .desktop-title{

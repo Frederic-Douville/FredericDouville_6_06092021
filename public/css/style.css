@@ -158,6 +158,12 @@ a {
 .main-index {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main-body {
+  display: flex;
+  flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
 }
