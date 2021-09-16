@@ -208,36 +208,6 @@ a {
     margin: 2em 0 0 0;
   }
 }
-.img_MK {
-  width: 400px;
-  height: 400px;
-  margin: 20px 0 0 0;
-}
-.img_ERW {
-  width: 280px;
-  height: 280px;
-}
-.img_TG {
-  width: 600px;
-  height: 600px;
-  margin: 25px 0 0 0;
-}
-.img_NB {
-  width: 650px;
-  height: 650px;
-  margin: 50px 0 0 0;
-}
-.img_RD {
-  width: 800px;
-  height: 800px;
-  margin: 425px 0 0 75px;
-}
-.img_MN {
-  width: 350px;
-  height: 350px;
-  margin: 50px 0 0 0;
-}
-
 .photographer-ctn {
   display: flex;
   flex-direction: column;
@@ -266,6 +236,8 @@ a {
 }
 .photographer-tbn-img_ctn img {
   object-fit: cover;
+  height: 200px;
+  width: 200px;
 }
 .photographer-tbn-name {
   color: #d3573c;
