@@ -59,17 +59,17 @@ a {
 }
 .content-ctn {
   display: none;
-  z-index: 2;
+  z-index: 6;
   position: fixed;
-  left: 45%;
+  width: 90%;
+  animation: scroll-link-appearance 1s both;
+}
+.content-ctn-2 {
   background-color: #d3573c;
   border-radius: 5px;
   width: 182px;
   height: 30px;
-}
-.content-ctn-2 {
-  width: 100%;
-  height: 100%;
+  margin: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -84,6 +84,21 @@ a {
   line-height: 23, 44px;
 }
 
+@keyframes scroll-link-appearance {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@media screen and (max-width: 768px) {
+  .content-ctn {
+    width: 100%;
+  }
+}
 .banner {
   position: absolute;
   display: flex;
@@ -470,7 +485,7 @@ a {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 90%;
+    width: 100%;
     position: fixed;
     bottom: 10px;
   }

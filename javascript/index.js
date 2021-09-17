@@ -1,3 +1,5 @@
+/*fonction de création des tags*/
+
 function tagFactory(tagArray,index){           
         var tagDiv = document.createElement("div");
         tagDiv.className = 'tag tag-tbn';
@@ -9,6 +11,7 @@ function tagFactory(tagArray,index){
         tagCtn.appendChild(tagDiv);   
 }
 
+/*fonction de création des vignettes de photographes*/
 
 function thumbnailFactory(array){
     for(i=0;i<array.length;i++){
@@ -20,11 +23,17 @@ function thumbnailFactory(array){
   
     var tagArray=[];
     tagArray=array[i].tags;
-    for(j=0;j<tagArray.length;j++){
-            console.log(tagArray);            
+    for(j=0;j<tagArray.length;j++){                     
             tagFactory(tagArray[j],i);
         }  
     }
+}
+
+/*fonction permettant de filtrer les vignettes des photographes*/
+const tag = document.querySelectorAll('.tag');
+
+function tagFilter(wordTag,array){
+    
 }
 
 /*url pour git hub pages
@@ -32,6 +41,9 @@ function thumbnailFactory(array){
 
 /*url pour environnement de développement
 '../FishEyeData.json' */
+
+/*Requête permettant de lire 
+et d'intéragir avec la base de donnée du site*/
 
 fetch ('https://raw.githubusercontent.com/Frederic-Douville/FredericDouville_6_06092021/main/FishEyeData.json').then(response => {
     return response.json();
@@ -43,4 +55,14 @@ fetch ('https://raw.githubusercontent.com/Frederic-Douville/FredericDouville_6_0
     alert('error');
 });
 
+
+const scrollLink = document.getElementById("scroll-link");
+
+window.addEventListener("scroll",function(){
+    if(window.scrollY > 100){        
+        scrollLink.style.display = "block";
+    }else{
+        scrollLink.style.display = "none";
+    }
+},false);
 

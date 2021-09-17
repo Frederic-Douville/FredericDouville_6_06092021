@@ -1,20 +1,38 @@
 .content-ctn{
     display:none;
-    z-index: 2;
-    position:fixed;
-    left:45%;
-    background-color: $colorRed-2;
-    border-radius: 5px;    
-    width:182px;
-    height:30px;
+    z-index: 6;
+    position:fixed;    
+    width:90%;  
+    animation: scroll-link-appearance 1s both; 
     &-2{
-        width: 100%;
-        height: 100%;
+        background-color: $colorRed-2;
+        border-radius: 5px;    
+        width:182px;
+        height:30px;
+        margin: auto;
         @include flex_dlc(row,center,center);
         & a{
             @include font_CWStSi(black,500,normal,18px);                  
             text-align: center;
             line-height: 23,44px;       
         }
+    }
+}
+
+@keyframes scroll-link-appearance{
+    0%{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+   
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@media screen and (max-width: 768px){
+    .content-ctn{
+        width:100%;
     }
 }

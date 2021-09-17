@@ -144,7 +144,7 @@
             display:none;
             &-mobile{
                 @include flex-dlc(row,center,center);
-                width:90%;
+                width:100%;
                 position: fixed;                
                 bottom:10px;
             }
