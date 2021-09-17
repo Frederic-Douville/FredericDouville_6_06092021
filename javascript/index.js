@@ -1,6 +1,4 @@
-function tagFactory(tagArray,index){
-    //console.log(tagArray);
-    //for(i=0;i<tagArray.length;i++){        
+function tagFactory(tagArray,index){           
         var tagDiv = document.createElement("div");
         tagDiv.className = 'tag tag-tbn';
 
@@ -8,8 +6,7 @@ function tagFactory(tagArray,index){
         tagDiv.appendChild(tagContent);
 
         var tagCtn = document.getElementById('tag-ctn_'+index);
-        tagCtn.appendChild(tagDiv);     
-    //}
+        tagCtn.appendChild(tagDiv);   
 }
 
 
@@ -30,7 +27,13 @@ function thumbnailFactory(array){
     }
 }
 
-fetch ('../FishEyeData.json').then(response => {
+/*url pour git hub pages
+'https://raw.githubusercontent.com/Frederic-Douville/FredericDouville_6_06092021/main/FishEyeData.json' */
+
+/*url pour environnement de développement
+'../FishEyeData.json' */
+
+fetch ('https://raw.githubusercontent.com/Frederic-Douville/FredericDouville_6_06092021/main/FishEyeData.json').then(response => {
     return response.json();
 }).then(data => {
     console.log(data);
