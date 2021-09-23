@@ -1,15 +1,14 @@
-/*fonction de création des tags*/
+/*fonction faisant apparaitre l'encre de haut de page lors du scrolling vers le bas*/
 
-function tagFactory(tagArray,index){           
-        var tagDiv = document.createElement("div");
-        tagDiv.className = 'tag tag-tbn';
+const scrollLink = document.getElementById("scroll-link");
 
-        var tagContent = document.createTextNode("#"+tagArray);
-        tagDiv.appendChild(tagContent);
-
-        var tagCtn = document.getElementById('tag-ctn_'+index);
-        tagCtn.appendChild(tagDiv);   
-}
+window.addEventListener("scroll",function(){
+    if(window.scrollY > 100){        
+        scrollLink.style.display = "block";
+    }else{
+        scrollLink.style.display = "none";
+    }
+},false);
 
 /*fonction de création des vignettes de photographes*/
 
@@ -27,42 +26,75 @@ function thumbnailFactory(array){
             tagFactory(tagArray[j],i);
         }  
     }
-}
-
-/*fonction permettant de filtrer les vignettes des photographes*/
-const tag = document.querySelectorAll('.tag');
-
-function tagFilter(wordTag,array){
     
 }
 
-/*url pour git hub pages
-'https://raw.githubusercontent.com/Frederic-Douville/FredericDouville_6_06092021/main/FishEyeData.json' */
+/*fonction de création des tags*/
 
-/*url pour environnement de développement
-'../FishEyeData.json' */
+function tagFactory(tagArray,index){           
+    var tagDiv = document.createElement("div");
+    tagDiv.className = 'tag tag-tbn' + " " + tagArray;        
+    //trouver moyen d'ajouter les classes des tags créer à la nodelist tagclass 
+
+    var tagContent = document.createTextNode("#"+tagArray);
+    tagDiv.appendChild(tagContent);
+
+    var tagCtn = document.getElementById('tag-ctn_'+index);
+    tagCtn.appendChild(tagDiv);   
+}
+
+/*Déclaration d'une variable globale stockant le nom du tag cliqué*/
+
+var tag = '';
+
+/*fonction permettant de filtrer les vignettes en fonctions du tag cliqué */
+
+function tagFilter(array){
+    //console.log(tag);            
+    for(i=0;i<array.length;i++){
+        var tagArray=[];
+        tagArray=array[i].tags;            
+        for(j=0;j<tagArray.length;j++){
+            if(tag == tagArray[j]){               
+                document.getElementById(array[i].id).style.display="flex";
+                break;
+            }else{
+                document.getElementById(array[i].id).style.display="none";                
+            }
+        }
+    }  
+           
+}
 
 /*Requête permettant de lire 
 et d'intéragir avec la base de donnée du site*/
+var myfetch = fetch ('https://raw.githubusercontent.com/Frederic-Douville/FredericDouville_6_06092021/main/FishEyeData.json');
 
-fetch ('https://raw.githubusercontent.com/Frederic-Douville/FredericDouville_6_06092021/main/FishEyeData.json').then(response => {
+myfetch.then(response => {
     return response.json();
 }).then(data => {
-    console.log(data);
-    thumbnailFactory(data.photographers);   
-   
+    //console.log(data.photographers);    
+    thumbnailFactory(data.photographers);  
+
+    /*fonction appelé lors d'un click sur les tags des headers */
+
+    var tagClass =document.getElementsByClassName('tag');
+    Array.prototype.forEach.call(tagClass,el => el.addEventListener('click', event => {        
+        var classTag = event.target.getAttribute("class");
+        var strTag = classTag.split(' '); 
+        if (tag == null){
+            tag += strTag[2];
+        }else{
+            tag='';
+            tag += strTag[2];
+        };
+        tagFilter(data.photographers);         
+    }));    
+    
 }).catch(err => {
     alert('error');
 });
 
+/* Transmettre l'ID des photographes dans le href des liens des vignettes*/
 
-const scrollLink = document.getElementById("scroll-link");
-
-window.addEventListener("scroll",function(){
-    if(window.scrollY > 100){        
-        scrollLink.style.display = "block";
-    }else{
-        scrollLink.style.display = "none";
-    }
-},false);
 
