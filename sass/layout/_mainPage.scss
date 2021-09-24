@@ -70,6 +70,13 @@
             border-radius: 5px;
             margin: 0 1em 0 1em;
         }
+        & video{
+            width:350px;
+            height:300px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 0 1em 0 1em;
+        }
     }
     &-desc{
         @include flex-dlc(row,center,space-between);
@@ -87,7 +94,7 @@
         & svg{
             &:hover{
                 cursor: pointer;
-
+                fill:$colorRed-1;
             }
         }
     }

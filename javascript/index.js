@@ -33,8 +33,7 @@ function thumbnailFactory(array){
 
 function tagFactory(tagArray,index){           
     var tagDiv = document.createElement("div");
-    tagDiv.className = 'tag tag-tbn' + " " + tagArray;        
-    //trouver moyen d'ajouter les classes des tags créer à la nodelist tagclass 
+    tagDiv.className = 'tag tag-tbn' + " " + tagArray;     
 
     var tagContent = document.createTextNode("#"+tagArray);
     tagDiv.appendChild(tagContent);
@@ -46,6 +45,22 @@ function tagFactory(tagArray,index){
 /*Déclaration d'une variable globale stockant le nom du tag cliqué*/
 
 var tag = '';
+
+/*récupération de l'intitulé du tag */
+
+const urlIndex = window.location.href;
+var urlArray = urlIndex.split('?');
+var tagFromUrl = '';
+
+urlArrayVerif(urlArray);
+
+function urlArrayVerif(urlarray){
+    if(urlarray.length == 2){
+        tagFromUrl = urlArray[1];
+    }else{
+        tagFromUrl = '';
+    }
+}
 
 /*fonction permettant de filtrer les vignettes en fonctions du tag cliqué */
 
@@ -75,6 +90,12 @@ myfetch.then(response => {
 }).then(data => {
     //console.log(data.photographers);    
     thumbnailFactory(data.photographers);  
+
+    /*condition si intitulé de tag est présent dans url*/ 
+    if(tagFromUrl !== ''){
+        tag += tagFromUrl;
+        tagFilter(data.photographers);
+    }
 
     /*fonction appelé lors d'un click sur les tags des headers */
 

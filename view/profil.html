@@ -28,14 +28,10 @@
 		<section class="photographer-banner">
 			<div class="photographer-banner-desc">
 				<div class="photographer-banner-ID">
-					<h1 class="photographer-banner-name">Mimi Keel</h1>
-					<span class="photographer-banner-place">London, Uk</span>
-					<span class="photographer-banner-phrase">Voir le beau dans le quotidien</span>
-					<div class="photographer-banner-tag">
-						<div class="tag tag-banner">#portrait</div>
-						<div class="tag tag-banner">#events</div>
-						<div class="tag tag-banner">#travel</div>
-						<div class="tag tag-banner">#animals</div>
+					<h1 class="photographer-banner-name" id="name"></h1>
+					<span class="photographer-banner-place" id="place"></span>
+					<span class="photographer-banner-phrase" id="tagline"></span>
+					<div class="photographer-banner-tag" id="tag-ctn">					
 					</div>
 				</div>
 				<div class="banner-button-ctn">
@@ -44,7 +40,7 @@
 			</div>			
 			<div class="banner-img-ctn">
 				<div class="banner-img">
-					<img  src="../public/img/Sample Photos/Photographers ID Photos/MimiKeel.jpg"/>
+					<img id="portrait" />
 				</div>
 			</div>
 		</section>
@@ -72,13 +68,13 @@
 		<div class="likePrice-ctn">
 			<div class="likePrice-ctn-2">
 				<div class="like-ctn">
-					<span class="like-total">123000</span>
+					<span class="like-total">xxxxx</span>
 					<svg viewBox="0 0 20 19"  xmlns="http://www.w3.org/2000/svg">
 					<path d="M10 18.35L8.55 17.03C3.4 12.36 0 9.28 0 5.5C0 2.42 2.42 0 5.5 0C7.24 0 8.91 0.81 10 2.09C11.09 0.81 12.76 0 14.5 0C17.58 0 20 2.42 20 5.5C20 9.28 16.6 12.36 11.45 17.04L10 18.35Z"/>
 					</svg>
 				</div>
 				<div class="price-ctn">
-					<span class="price-desc">300&euro;/jour</span>
+					<span class="price-desc" id="price"></span>
 				</div>
 			</div>
 		</div>
@@ -96,7 +92,7 @@
 						</svg>
 					</div>
 					<div class="light-img">
-						<img src="../public/img/Sample Photos/Mimi/Animals_Rainbow.jpg"/>
+						<img />
 						<div class="light-title-ctn">
 							<span class="light-title" >Arc-en-ciel</span>
 						</div>
@@ -158,91 +154,8 @@
 			</div>
 		</section>
 
-		<section class="photo-list-ctn">
-			<div class="photo-ctn">
-				<div class="img-ctn">
-					<img src="../public/img/Sample Photos/Mimi/Animals_Rainbow.jpg"/>
-				</div>
-				<div class="img-desc">
-					<div class="img-title">Arc-en-cie</div>
-					<div class="img-notation">
-						<span class="notation">12</span>
-						<svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M10 18.35L8.55 17.03C3.4 12.36 0 9.28 0 5.5C0 2.42 2.42 0 5.5 0C7.24 0 8.91 0.81 10 2.09C11.09 0.81 12.76 0 14.5 0C17.58 0 20 2.42 20 5.5C20 9.28 16.6 12.36 11.45 17.04L10 18.35Z" fill="#911C1C"/>
-						</svg>							
-					</div>
-				</div>
-			</div>
-			<div class="photo-ctn">
-				<div class="img-ctn">
-					<img src="../public/img/Sample Photos/Mimi/Event_BenevidesWedding.jpg"/>
-				</div>
-				<div class="img-desc">
-					<div class="img-title">Mariage</div>
-					<div class="img-notation">
-						<span class="notation">30</span>
-						<svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M10 18.35L8.55 17.03C3.4 12.36 0 9.28 0 5.5C0 2.42 2.42 0 5.5 0C7.24 0 8.91 0.81 10 2.09C11.09 0.81 12.76 0 14.5 0C17.58 0 20 2.42 20 5.5C20 9.28 16.6 12.36 11.45 17.04L10 18.35Z" fill="#911C1C"/>
-						</svg>							
-					</div>
-				</div>
-			</div>
-			<div class="photo-ctn">
-				<div class="img-ctn">
-					<img src="../public/img/Sample Photos/Mimi/Event_PintoWedding.jpg"/>
-				</div>
-				<div class="img-desc">
-					<div class="img-title">Mariage #2</div>
-					<div class="img-notation">
-						<span class="notation">18</span>
-						<svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M10 18.35L8.55 17.03C3.4 12.36 0 9.28 0 5.5C0 2.42 2.42 0 5.5 0C7.24 0 8.91 0.81 10 2.09C11.09 0.81 12.76 0 14.5 0C17.58 0 20 2.42 20 5.5C20 9.28 16.6 12.36 11.45 17.04L10 18.35Z" fill="#911C1C"/>
-						</svg>							
-					</div>
-				</div>
-			</div>
-			<div class="photo-ctn">
-				<div class="img-ctn">
-					<img src="../public/img/Sample Photos/Mimi/Event_SeasideWedding.jpg"/>
-				</div>
-				<div class="img-desc">
-					<div class="img-title">Mariage à la mer</div>
-					<div class="img-notation">
-						<span class="notation">23</span>
-						<svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M10 18.35L8.55 17.03C3.4 12.36 0 9.28 0 5.5C0 2.42 2.42 0 5.5 0C7.24 0 8.91 0.81 10 2.09C11.09 0.81 12.76 0 14.5 0C17.58 0 20 2.42 20 5.5C20 9.28 16.6 12.36 11.45 17.04L10 18.35Z" fill="#911C1C"/>
-						</svg>							
-					</div>
-				</div>
-			</div>
-			<div class="photo-ctn">
-				<div class="img-ctn">
-					<img src="../public/img/Sample Photos/Mimi/Portrait_Background.jpg"/>
-				</div>
-				<div class="img-desc">
-					<div class="img-title">Portrait</div>
-					<div class="img-notation">
-						<span class="notation">15</span>
-						<svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M10 18.35L8.55 17.03C3.4 12.36 0 9.28 0 5.5C0 2.42 2.42 0 5.5 0C7.24 0 8.91 0.81 10 2.09C11.09 0.81 12.76 0 14.5 0C17.58 0 20 2.42 20 5.5C20 9.28 16.6 12.36 11.45 17.04L10 18.35Z" fill="#911C1C"/>
-						</svg>							
-					</div>
-				</div>
-			</div>
-			<div class="photo-ctn">
-				<div class="img-ctn">
-					<img src="../public/img/Sample Photos/Mimi/Portrait_Nora.jpg"/>
-				</div>
-				<div class="img-desc">
-					<div class="img-title">Portrait Nora</div>
-					<div class="img-notation">
-						<span class="notation">20</span>
-						<svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M10 18.35L8.55 17.03C3.4 12.36 0 9.28 0 5.5C0 2.42 2.42 0 5.5 0C7.24 0 8.91 0.81 10 2.09C11.09 0.81 12.76 0 14.5 0C17.58 0 20 2.42 20 5.5C20 9.28 16.6 12.36 11.45 17.04L10 18.35Z" fill="#911C1C"/>
-						</svg>							
-					</div>
-				</div>
-			</div>
+		<section class="photo-list-ctn" id="photo-list-container">		
+			
 			<div class="space-bottom"></div>
 		</section>
 		

@@ -57,6 +57,7 @@
         width:170px;
         height:69px;
         margin-top:3em;
+        margin-left: 2em;
         &:hover{
             background-color: $colorRed-2;
             color: black;
@@ -68,8 +69,8 @@
     }
     &-img{
         @include flex_dlc(row,center,center);
-        width: 175px;
-        height: 175px;
+        width: 200px;
+        height: 200px;
         border-radius: 50%;        
         overflow: hidden;          
         & img{ 

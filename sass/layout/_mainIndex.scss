@@ -3,8 +3,14 @@
         @include flex_dlc(column,center,center);
     }
     &-body{
-        @include flex_dlc(column,flex-end,space-between);
+        @include flex_dlc(column,center,space-between);
+        width: 100%;
     }
+}
+
+.title-ctn{
+    @include flex_dlc(row,center,flex-end);
+    width: 100%;
 }
 
 .desktop-title{
