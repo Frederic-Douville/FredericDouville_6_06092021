@@ -92,12 +92,16 @@
             margin-right: 0.5em;
         }
         & svg{
-            &:hover{
-                cursor: pointer;
-                fill:$colorRed-1;
-            }
+            fill:$colorRed-1;
+            
         }
     }
+}
+
+.heart-svg{
+    &:hover{
+        cursor: pointer;        
+    } 
 }
 
 .likePrice-ctn{

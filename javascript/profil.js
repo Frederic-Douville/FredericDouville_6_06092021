@@ -80,11 +80,12 @@ function pictureFactory(arrayMedia,name){
 
     var notationContent = document.createElement('span');
     notationContent.className = 'notation';
+    notationContent.id = arrayMedia.id;
     notationContent.innerHTML = arrayMedia.likes;
     imgNotation.appendChild(notationContent);
 
-    var notationHeartSvg = document.createElement('span');
-    notationHeartSvg.className = 'heart-svg';
+    var notationHeartSvg = document.createElement('div');
+    notationHeartSvg.className = 'heart-svg' + ' ' + arrayMedia.id;
     notationHeartSvg.innerHTML = '<svg width="20" height="19" viewBox="0 0 20 19" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.35L8.55 17.03C3.4 12.36 0 9.28 0 5.5C0 2.42 2.42 0 5.5 0C7.24 0 8.91 0.81 10 2.09C11.09 0.81 12.76 0 14.5 0C17.58 0 20 2.42 20 5.5C20 9.28 16.6 12.36 11.45 17.04L10 18.35Z" fill="#911C1C"/></svg>';
     imgNotation.appendChild(notationHeartSvg);
 }
@@ -105,23 +106,64 @@ des miniatures de photos sur tout le contenu media.json*/
 function photoDom(arrayMedia,name){        
     for(j=0;j<arrayMedia.length;j++){ 
         if(arrayMedia[j].photographerId == idPhoto){
-            pictureFactory(arrayMedia[j],name);                    
+            pictureFactory(arrayMedia[j],name);                                
+        }
+    }    
+} 
+  
+/*fonction permettant de compter le total de like des photos */
+
+function likeCount(arrayMedia){
+    var totalLike = 0;
+    for(j=0;j<arrayMedia.length;j++){ 
+        if(arrayMedia[j].photographerId == idPhoto){
+            totalLike += arrayMedia[j].likes;
+        }
+    } 
+    return totalLike;
+}
+
+/*fonction permettant de changer le nombre de like d'une photo"*/
+
+function likePicture(arrayMedia,idPicture){
+    for(i=0;i<arrayMedia.length;i++){
+        if(arrayMedia[i].id == idPicture){            
+            arrayMedia[i].likes += 1;            
+            document.getElementById(idPicture).innerHTML = arrayMedia[i].likes;
+
         }
     }
-} 
-    
-/*Requête permettant de lire 
-et d'intéragir avec la base de donnée du site*/
+   
+}
+
+
+
+/*Requête permettant de lire et d'intéragir avec la base de donnée du site*/
 
 var myfetch = fetch ('https://raw.githubusercontent.com/Frederic-Douville/FredericDouville_6_06092021/main/FishEyeData.json');
 myfetch.then(response => {
     return response.json();
 }).then(data => {
     console.log(data.photographers);
-    console.log(data.media);    
+    console.log(data.media);
+        
     bannerFactory(data.photographers);              
     var nameId= photoId(data.photographers);    
     photoDom(data.media,nameId);
+
+    var likes = likeCount(data.media);
+    document.getElementById('like-total').innerHTML = likes;
+
+    var heartClass =document.getElementsByClassName('heart-svg');    
+    Array.prototype.forEach.call(heartClass,el => el.addEventListener('click', event => {        
+        var classHeart = event.currentTarget.getAttribute("class");        
+        var classHeartArray = classHeart.split(' '); 
+        var idPicture = classHeartArray[1]; 
+        likePicture(data.media,idPicture);
+        likes += 1;
+        document.getElementById('like-total').innerHTML = likes;             
+    }));
+
 }).catch(err => {
     alert('error');
 });

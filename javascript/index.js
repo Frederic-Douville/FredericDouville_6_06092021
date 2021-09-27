@@ -99,9 +99,9 @@ myfetch.then(response => {
 
     /*fonction appelé lors d'un click sur les tags des headers */
 
-    var tagClass =document.getElementsByClassName('tag');
+    var tagClass =document.getElementsByClassName('tag');    
     Array.prototype.forEach.call(tagClass,el => el.addEventListener('click', event => {        
-        var classTag = event.target.getAttribute("class");
+        var classTag = event.target.getAttribute("class");        
         var strTag = classTag.split(' '); 
         if (tag == null){
             tag += strTag[2];
@@ -110,7 +110,7 @@ myfetch.then(response => {
             tag += strTag[2];
         };
         tagFilter(data.photographers);         
-    }));    
+    }));   
     
 }).catch(err => {
     alert('error');

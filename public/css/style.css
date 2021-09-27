@@ -633,9 +633,12 @@ a {
   font-size: 24px;
   margin-right: 0.5em;
 }
-.img-notation svg:hover {
-  cursor: pointer;
+.img-notation svg {
   fill: #901c1c;
+}
+
+.heart-svg:hover {
+  cursor: pointer;
 }
 
 .likePrice-ctn {
