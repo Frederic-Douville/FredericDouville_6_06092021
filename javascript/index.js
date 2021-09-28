@@ -1,3 +1,40 @@
+/*Requête permettant de lire 
+et d'intéragir avec la base de donnée du site*/
+
+var myfetch = fetch ('https://raw.githubusercontent.com/Frederic-Douville/FredericDouville_6_06092021/main/FishEyeData.json');
+
+myfetch.then(response => {
+    return response.json();
+}).then(data => {
+    //console.log(data.photographers);    
+    thumbnailFactory(data.photographers);  
+
+    /*condition si intitulé de tag est présent dans url*/ 
+    if(tagFromUrl !== ''){
+        tag += tagFromUrl;
+        tagFilter(data.photographers);
+    }
+
+    /*fonction appelé lors d'un click sur les tags des headers */
+
+    var tagClass =document.getElementsByClassName('tag');    
+    Array.prototype.forEach.call(tagClass,el => el.addEventListener('click', event => {        
+        var classTag = event.target.getAttribute("class");        
+        var strTag = classTag.split(' '); 
+        if (tag == null){
+            tag += strTag[2];
+        }else{
+            tag='';
+            tag += strTag[2];
+        };
+        tagFilter(data.photographers);         
+    }));   
+    
+}).catch(err => {
+    alert('error');
+});
+
+
 /*fonction faisant apparaitre l'encre de haut de page lors du scrolling vers le bas*/
 
 const scrollLink = document.getElementById("scroll-link");
@@ -77,45 +114,5 @@ function tagFilter(array){
                 document.getElementById(array[i].id).style.display="none";                
             }
         }
-    }  
-           
+    }             
 }
-
-/*Requête permettant de lire 
-et d'intéragir avec la base de donnée du site*/
-var myfetch = fetch ('https://raw.githubusercontent.com/Frederic-Douville/FredericDouville_6_06092021/main/FishEyeData.json');
-
-myfetch.then(response => {
-    return response.json();
-}).then(data => {
-    //console.log(data.photographers);    
-    thumbnailFactory(data.photographers);  
-
-    /*condition si intitulé de tag est présent dans url*/ 
-    if(tagFromUrl !== ''){
-        tag += tagFromUrl;
-        tagFilter(data.photographers);
-    }
-
-    /*fonction appelé lors d'un click sur les tags des headers */
-
-    var tagClass =document.getElementsByClassName('tag');    
-    Array.prototype.forEach.call(tagClass,el => el.addEventListener('click', event => {        
-        var classTag = event.target.getAttribute("class");        
-        var strTag = classTag.split(' '); 
-        if (tag == null){
-            tag += strTag[2];
-        }else{
-            tag='';
-            tag += strTag[2];
-        };
-        tagFilter(data.photographers);         
-    }));   
-    
-}).catch(err => {
-    alert('error');
-});
-
-/* Transmettre l'ID des photographes dans le href des liens des vignettes*/
-
-
