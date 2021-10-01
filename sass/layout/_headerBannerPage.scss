@@ -57,7 +57,7 @@
         width:170px;
         height:69px;
         margin-top:3em;
-        margin-left: 2em;
+        margin-left: 1.5em;
         &:hover{
             background-color: $colorRed-2;
             color: black;
@@ -65,7 +65,8 @@
         }
     }
     &-img-ctn{
-        margin-right: 4em;
+        margin-right: 3em;
+        margin-left: 1.25em;
     }
     &-img{
         @include flex_dlc(row,center,center);
@@ -87,17 +88,17 @@
         &-name{
             font-size:36px;
             line-height: 46px;
-            margin:32px 0 6px 32px;
+            margin:32px 0 6px 5px;
         }   
         &-place{
             font-size: 13px;
             line-height: 17px;
-            margin:6px 0 6px 32px;
+            margin:6px 0 6px 5px;
         }
         &-phrase{
             font-size: 13px;
             line-height: 17px;
-            margin:6px 0 6px 32px;
+            margin:6px 0 6px 5px;
         }
         &-tag{            
             margin:6px 0 6px 0;            

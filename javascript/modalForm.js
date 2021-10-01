@@ -120,6 +120,8 @@ function validOrNot(event){
 function validForm(event) {
   if (firstValid() && lastValid() && emailValid() && msgValid()) {
     modalFormBg.style.display = "none";
+    event.preventDefault();
+    form.reset();
     return true;
   } else {
     event.preventDefault();

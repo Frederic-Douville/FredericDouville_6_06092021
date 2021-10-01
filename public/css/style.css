@@ -409,7 +409,7 @@ a {
   width: 170px;
   height: 69px;
   margin-top: 3em;
-  margin-left: 2em;
+  margin-left: 1.5em;
 }
 .banner-btn:hover {
   background-color: #d3573c;
@@ -417,7 +417,8 @@ a {
   cursor: pointer;
 }
 .banner-img-ctn {
-  margin-right: 4em;
+  margin-right: 3em;
+  margin-left: 1.25em;
 }
 .banner-img {
   display: flex;
@@ -442,17 +443,17 @@ a {
   .photographer-banner-name {
     font-size: 36px;
     line-height: 46px;
-    margin: 32px 0 6px 32px;
+    margin: 32px 0 6px 5px;
   }
   .photographer-banner-place {
     font-size: 13px;
     line-height: 17px;
-    margin: 6px 0 6px 32px;
+    margin: 6px 0 6px 5px;
   }
   .photographer-banner-phrase {
     font-size: 13px;
     line-height: 17px;
-    margin: 6px 0 6px 32px;
+    margin: 6px 0 6px 5px;
   }
   .photographer-banner-tag {
     margin: 6px 0 6px 0;
@@ -911,13 +912,26 @@ a {
   align-items: center;
   justify-content: center;
   width: 55%;
-  max-width: 1050px;
   height: 100%;
-  max-height: 900px;
+}
+.light-img-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
 }
 .light-img img {
   width: 100%;
+  max-width: 600px;
   height: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  object-position: center;
+}
+.light-img video {
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  max-height: 600px;
   object-fit: cover;
   object-position: center;
 }
