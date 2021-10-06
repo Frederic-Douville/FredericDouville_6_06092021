@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Frederic-Douville/FredericDouville_6_06092021/issues"
   },
-  "homepage": "https://github.com/Frederic-Douville/FredericDouville_6_06092021#readme"
+  "homepage": "https://github.com/Frederic-Douville/FredericDouville_6_06092021#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
 }

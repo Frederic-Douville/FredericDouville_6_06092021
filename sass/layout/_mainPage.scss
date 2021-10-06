@@ -19,13 +19,19 @@
         }
         &-choice{
             @include font_CWStSi(white,700,normal,18px);
+            background-color: $colorRed-1;
+            border-style: none;
+            border-radius: 5px;
+            text-align: start;
             padding:15px 0 15px 15px;
             width:100%;
             &:hover{
                 cursor:pointer;
             }
         }
-        &-arrow{            
+        &-arrow{
+            background-color: $colorRed-1;
+            border-style: none;            
             &:hover{
                 cursor:pointer;        
             }
@@ -75,20 +81,22 @@
 }
 
 .img{
-    &-ctn{               
+    &-ctn{  
+        border-style: none;
+        background-color: white;             
         & img{
             width:350px;
             height:300px;
             object-fit: cover;            
-            border-radius: 5px;
-            margin: 0 1em 0 1em;
+            border-radius: 5px;            
+            margin: 0.5em ;
         }
         & video{
             width:350px;
             height:300px;
             object-fit: cover;
             border-radius: 5px;
-            margin: 0 1em 0 1em;
+            margin: 0.5em;
         }
         &:hover{
             cursor: pointer;
@@ -102,12 +110,13 @@
         @include font_CWStSi($colorRed-1,400,normal,24px);
     }
     &-notation{
-        @include flex-dlc(row,center,space-between);
+        @include flex-dlc(row,center,space-between);         
         & span{
             @include font_CWStSi($colorRed-1,500,normal,24px);
             margin-right: 0.5em;
         }
         & svg{
+            margin:0.4em 0 0 0;
             fill:$colorRed-1;
             
         }
@@ -115,6 +124,8 @@
 }
 
 .heart-svg{
+    border-style: none;
+    background-color: white;
     &:hover{
         cursor: pointer;        
     } 

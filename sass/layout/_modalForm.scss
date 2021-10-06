@@ -31,10 +31,16 @@
             line-height: 83px;
             margin:10px 0 0 25px;            
         }
+        
+    }
+    &-closeCross-btn{
+        background-color: $colorRed-2;
+        border-style: none;
+        @include flex_dlc(row,center,center);
+        margin:25px 25px 0 0;   
         & svg{
             width:42px;
-            height:42px;
-            margin:25px 25px 0 0;
+            height:42px;            
             &:hover{
                 cursor: pointer;
             }
@@ -94,11 +100,13 @@
                 font-size: 36px; 
                 line-height: 47px;              
                 margin:10px 0 0 20px;            
-            }
+            }            
+        }
+        &-closeCross-btn{           
+            margin:25px 20px 0 0;   
             & svg{
                 width:18.5px;
-                height:18.5px;
-                margin:25px 20px 0 0;              
+                height:18.5px;               
             }
         }
         &-data{

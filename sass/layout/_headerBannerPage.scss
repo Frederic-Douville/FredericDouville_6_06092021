@@ -52,13 +52,19 @@
     &-btn{
         @include flex-dlc(row,center,center);
         @include font_CWStSi(white,700,normal,20px);
-        background-color: $colorRed-1;        
+        background-color: $colorRed-1;
+        border-style: none;        
         border-radius: 5px;
         width:170px;
         height:69px;
         margin-top:3em;
         margin-left: 1.5em;
         &:hover{
+            background-color: $colorRed-2;
+            color: black;
+            cursor: pointer;
+        }
+        &:focus{
             background-color: $colorRed-2;
             color: black;
             cursor: pointer;

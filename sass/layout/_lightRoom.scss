@@ -14,6 +14,10 @@
         @include flex_dlc(row,center,center);
         width:100%;
         height:100%;
+        & button{
+            background-color: white;
+            border-style: none;
+        }
     }
     &-img-ctn{
         @include flex_dlc(row,center,space-around);

@@ -33,6 +33,7 @@ a {
   text-align: center;
   border: solid #c4c4c4 0.5px;
   border-radius: 11px;
+  background-color: white;
 }
 .tag:hover {
   background-color: #901c1c;
@@ -405,6 +406,7 @@ a {
   font-style: normal;
   font-size: 20px;
   background-color: #901c1c;
+  border-style: none;
   border-radius: 5px;
   width: 170px;
   height: 69px;
@@ -412,6 +414,11 @@ a {
   margin-left: 1.5em;
 }
 .banner-btn:hover {
+  background-color: #d3573c;
+  color: black;
+  cursor: pointer;
+}
+.banner-btn:focus {
   background-color: #d3573c;
   color: black;
   cursor: pointer;
@@ -558,11 +565,19 @@ a {
   font-weight: 700;
   font-style: normal;
   font-size: 18px;
+  background-color: #901c1c;
+  border-style: none;
+  border-radius: 5px;
+  text-align: start;
   padding: 15px 0 15px 15px;
   width: 100%;
 }
 .option-btn-choice:hover {
   cursor: pointer;
+}
+.option-btn-arrow {
+  background-color: #901c1c;
+  border-style: none;
 }
 .option-btn-arrow:hover {
   cursor: pointer;
@@ -608,19 +623,23 @@ a {
   margin: 1em 0 1em 0;
 }
 
+.img-ctn {
+  border-style: none;
+  background-color: white;
+}
 .img-ctn img {
   width: 350px;
   height: 300px;
   object-fit: cover;
   border-radius: 5px;
-  margin: 0 1em 0 1em;
+  margin: 0.5em;
 }
 .img-ctn video {
   width: 350px;
   height: 300px;
   object-fit: cover;
   border-radius: 5px;
-  margin: 0 1em 0 1em;
+  margin: 0.5em;
 }
 .img-ctn:hover {
   cursor: pointer;
@@ -652,9 +671,14 @@ a {
   margin-right: 0.5em;
 }
 .img-notation svg {
+  margin: 0.4em 0 0 0;
   fill: #901c1c;
 }
 
+.heart-svg {
+  border-style: none;
+  background-color: white;
+}
 .heart-svg:hover {
   cursor: pointer;
 }
@@ -762,12 +786,20 @@ a {
   line-height: 83px;
   margin: 10px 0 0 25px;
 }
-.form-title-ctn svg {
-  width: 42px;
-  height: 42px;
+.form-closeCross-btn {
+  background-color: #d3573c;
+  border-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   margin: 25px 25px 0 0;
 }
-.form-title-ctn svg:hover {
+.form-closeCross-btn svg {
+  width: 42px;
+  height: 42px;
+}
+.form-closeCross-btn svg:hover {
   cursor: pointer;
 }
 .form-input {
@@ -834,10 +866,12 @@ a {
     line-height: 47px;
     margin: 10px 0 0 20px;
   }
-  .form-title-ctn svg {
+  .form-closeCross-btn {
+    margin: 25px 20px 0 0;
+  }
+  .form-closeCross-btn svg {
     width: 18.5px;
     height: 18.5px;
-    margin: 25px 20px 0 0;
   }
   .form-data {
     margin: 10px 20px 10px 20px;
@@ -886,6 +920,10 @@ a {
   justify-content: center;
   width: 100%;
   height: 100%;
+}
+.light-ctn button {
+  background-color: white;
+  border-style: none;
 }
 .light-img-ctn {
   display: flex;

@@ -2,7 +2,6 @@
 /******************************************************************************************/
 /*Requête permettant de lire et d'intéragir avec la base de donnée du site*/
 
-
 var myfetch = fetch ('https://raw.githubusercontent.com/Frederic-Douville/FredericDouville_6_06092021/main/FishEyeData.json');
 myfetch.then(response => {
     return response.json();
@@ -43,7 +42,7 @@ myfetch.then(response => {
 
     
 }).catch(err => {
-    alert('error');
+    alert('error:' + err);
 });
 
 /******************************************************************************************/
@@ -57,7 +56,7 @@ var idPhoto = urlArray[1];
 /*fonction qui retourne le nom du photographe selon son id*/
 
 function photoId(arrayPhoto){
-    for(i=0;i<arrayPhoto.length;i++){
+    for(var i=0;i<arrayPhoto.length;i++){
         if(arrayPhoto[i].id == idPhoto){            
            return arrayPhoto[i].name;       
         }
@@ -69,12 +68,12 @@ des miniatures de photos sur tout le contenu media.json copié dans mediaArray*/
 
 var mediaArray = [];
 function photoDom(arrayMedia,name){            
-    for(j=0;j<arrayMedia.length;j++){ 
+    for(var j=0;j<arrayMedia.length;j++){ 
         if(arrayMedia[j].photographerId == idPhoto){
             mediaArray.push(arrayMedia[j]);                                            
         }
     }
-    for(i=0;i<mediaArray.length;i++){
+    for(var i=0;i<mediaArray.length;i++){
         pictureFactory(mediaArray[i],name);
         lightImageFactory(mediaArray[i],name);
     }
@@ -86,19 +85,20 @@ function photoDom(arrayMedia,name){
 /*fonction de création de la bannière*/
 
 function bannerFactory(array){
-    for(i=0;i<array.length;i++){
+    for(var i=0;i<array.length;i++){
         if(array[i].id == idPhoto){
+        document.getElementById("title").innerText=array[i].name;
         document.getElementById("portrait").src ="../public/img/Sample Photos/Photographers ID Photos/" + array[i].portrait ;
         document.getElementById("name").innerHTML = array[i].name;
-        document.getElementById("formName").innerHTML = array[i].name;
-        //document.getElementById("form").setAttribute("action","./profil.html"+"?"+idPhoto);
+        document.getElementById("name").setAttribute("aria-label",array[i].name);
+        document.getElementById("formName").innerHTML = array[i].name;        
         document.getElementById("place").innerHTML = array[i].city + ", " + array[i].country;
         document.getElementById("tagline").innerHTML = array[i].tagline ;
         document.getElementById("price").innerHTML = array[i].price + "&euro;/jour";
   
             var tagArray=[];
             tagArray=array[i].tags;
-            for(j=0;j<tagArray.length;j++){                     
+            for(var j=0;j<tagArray.length;j++){                     
                 tagFactory(tagArray[j]);
             }  
         }
@@ -109,8 +109,10 @@ function bannerFactory(array){
 
 function tagFactory(tagArray){           
     var tagDiv = document.createElement("a");
-    tagDiv.className = 'tag tag-banner' + " " + tagArray;
-    tagDiv.setAttribute("href","../index.html?" + tagArray);   
+    tagDiv.className = 'tag tag-banner unfocus' + " " + tagArray;
+    tagDiv.setAttribute("href","../index.html?" + tagArray);
+    tagDiv.setAttribute("tabindex","1");
+    tagDiv.setAttribute('aria-label',tagArray);   
 
     var tagContent = document.createTextNode("#"+tagArray);
     tagDiv.appendChild(tagContent);
@@ -128,20 +130,24 @@ function pictureFactory(arrayMedia,name){
     photoCtn.id = 'pCtn-' + arrayMedia.id;    
     photoListContainer.appendChild(photoCtn);
 
-    var imgCtn = document.createElement("div");
-    imgCtn.className = 'img-ctn';
+    var imgCtn = document.createElement("button");
+    imgCtn.className = 'img-ctn unfocus';
     imgCtn.id = 'ctn-' + arrayMedia.id;
     photoCtn.appendChild(imgCtn);    
     
     if(arrayMedia.image){
         var img = document.createElement("img");
         img.setAttribute("src","../public/img/Sample Photos/" + name + "/" + arrayMedia.image);
+        img.setAttribute("alt",arrayMedia.altText);
+        img.setAttribute("aria-label",arrayMedia.altText);
         imgCtn.appendChild(img);
     }    
     
     if(arrayMedia.video){
         var video = document.createElement("video");
         video.setAttribute("src","../public/img/Sample Photos/" + name + "/" + arrayMedia.video);
+        video.setAttribute("alt",arrayMedia.altText);
+        video.setAttribute("aria-label",arrayMedia.altText);
         imgCtn.appendChild(video);
     }   
                     
@@ -166,9 +172,10 @@ function pictureFactory(arrayMedia,name){
     notationContent.innerHTML = arrayMedia.likes;
     imgNotation.appendChild(notationContent);
 
-    var notationHeartSvg = document.createElement('div');
-    notationHeartSvg.className = 'heart-svg' + ' ' + arrayMedia.id;
+    var notationHeartSvg = document.createElement('button');
+    notationHeartSvg.className = 'heart-svg' + ' ' + arrayMedia.id + ' ' + 'unfocus';
     notationHeartSvg.innerHTML = '<svg width="20" height="19" viewBox="0 0 20 19" xmlns="http://www.w3.org/2000/svg"><path d="M10 18.35L8.55 17.03C3.4 12.36 0 9.28 0 5.5C0 2.42 2.42 0 5.5 0C7.24 0 8.91 0.81 10 2.09C11.09 0.81 12.76 0 14.5 0C17.58 0 20 2.42 20 5.5C20 9.28 16.6 12.36 11.45 17.04L10 18.35Z" fill="#911C1C"/></svg>';
+    notationHeartSvg.setAttribute('aria-label','like');
     imgNotation.appendChild(notationHeartSvg);
 }
 
@@ -178,7 +185,7 @@ function pictureFactory(arrayMedia,name){
 
 function likeCount(array){
     var totalLike = 0;
-    for(j=0;j<array.length;j++){ 
+    for(var j=0;j<array.length;j++){ 
         totalLike += array[j].likes;        
     } 
     return totalLike;
@@ -187,7 +194,7 @@ function likeCount(array){
 /*fonction permettant de changer le nombre de like d'une photo"*/
 
 function likePicture(idPicture){
-    for(i=0;i<mediaArray.length;i++){
+    for(var i=0;i<mediaArray.length;i++){
         if(mediaArray[i].id == idPicture){            
             mediaArray[i].likes += 1;            
             document.getElementById(idPicture).innerHTML = mediaArray[i].likes;
@@ -205,20 +212,21 @@ var choice = ['Popularité','Date','Titre'];
 les différentes options selon leur indice dans le tableau */
 
 function choiceButton(){    
-    for(i=0;i<choice.length;i++){
+    for(var i=0;i<choice.length;i++){
         document.getElementById('choice-'+i).innerHTML = choice[i];
+        document.getElementById('choice-'+i).setAttribute('aria-label',choice[i]);
     }
 }
 choiceButton();
 
 /*déclaration des variables correspondant aux éléments du choix des options*/
 
-const arrowDown = document.querySelectorAll('.arrow-down');
+const arrowDown = document.querySelectorAll('.arrow-down-btn');
 const arrowDownCtn = document.querySelector('.optbtn-arrow-down');
-const arrowUp = document.querySelectorAll('.arrow-up');
+const arrowUp = document.querySelectorAll('.arrow-up-btn');
 const arrowUpCtn = document.querySelector('.optbtn-arrow-up');
 const optionDrop = document.querySelector('.option-dropdown');
-
+const optionBtnFirst = document.getElementById('optionBtnFirst');
 /*fonction permettant de faire apparaitre ou disparaitre les options de tri 
 en cliquant sur la flêche*/
 
@@ -227,12 +235,14 @@ arrowUp.forEach((btn) => btn.addEventListener('click',dropUp))
 
 function dropDown(){
     optionDrop.style.display = "block";
+    optionBtnFirst.setAttribute('aria-expended','true');
     arrowDownCtn.style.display = "none";
     arrowUpCtn.style.display = "block";
-};
+}
 
 function dropUp(){
     optionDrop.style.display = "none";
+    optionBtnFirst.setAttribute('aria-expended','false');
     arrowDownCtn.style.display = "block";
     arrowUpCtn.style.display = "none";
 }
@@ -242,7 +252,7 @@ puis d'activer la fonction de tri des photos*/
 
 var optionBtn = document.getElementsByClassName('option-btn-choice');    
 Array.prototype.forEach.call(optionBtn,el => el.addEventListener('click', event => {
-    var optionId = event.target.getAttribute("id");
+    var optionId = event.currentTarget.getAttribute("id");
     var optionIdArray = optionId.split('-');
     var idNumber = optionIdArray[1];
     var optionText = event.currentTarget.innerHTML;
@@ -270,21 +280,21 @@ function pictureSort(option){
 var photoListCtn = document.getElementById('photo-list-container');
 function popularSort(){            
     mediaArray.sort((a,b) => b.likes - a.likes);    
-    for(i=0;i<mediaArray.length;i++){
+    for(var i=0;i<mediaArray.length;i++){
         sortFactory(mediaArray[i]);
     }
 }
 
 function dateSort(){    
     mediaArray.sort((a,b) => new Date(b.date) - new Date(a.date));       
-    for(i=0;i<mediaArray.length;i++){
+    for(var i=0;i<mediaArray.length;i++){
         sortFactory(mediaArray[i]);
     }
 }
 
 function titleSort(){    
     mediaArray.sort((a,b) => a.title.localeCompare(b.title));
-    for(i=0;i<mediaArray.length;i++){
+    for(var i=0;i<mediaArray.length;i++){
         sortFactory(mediaArray[i]);
     } 
 }
@@ -296,6 +306,8 @@ function sortFactory(mediaArray){
 
 /******************************************************************************************/
 /******************************************************************************************/
+/*Partie modale lightbox*/
+
 /*déclaration des variables correspondant aux éléments de la lightbox*/
 
 var modalLightCtn = document.getElementById('modalLightCtn');
@@ -303,6 +315,8 @@ var closeLightCross = document.getElementById('closeLightCross');
 var allImgSlide = document.getElementsByClassName('light-img-Slide');
 var prevBtn = document.getElementById('prev');
 var nextBtn = document.getElementById('next');
+const unfocus = document.getElementsByClassName('unfocus');
+const blocPageLight = document.getElementById('blocpage');
 
 /*event lors du click sur la croix de fermeture et les flêches de navigation*/
 
@@ -310,13 +324,42 @@ closeLightCross.addEventListener('click',closeLight);
 prevBtn.addEventListener('click',prevIndex);
 nextBtn.addEventListener('click',nextIndex);
 
+/*fonction appelé lorsque les touches flèche droite et flèche gauche sont pressées */
+
+window.addEventListener("keydown",function(event){
+    if(event.defaultPrevented){
+        return;
+    }
+    switch(event.key){
+        case "ArrowLeft":
+            prevIndex();
+            break;   
+        case "ArrowRight":
+            nextIndex();
+            break;
+        case "Escape":
+            closeLight();
+            closeModalForm();
+            break;
+        default:
+            return;
+    }
+    event.preventDefault();
+},true);
+
 function openLight(){
-    modalLightCtn.style.display='block';
+    modalLightCtn.style.display = 'block';
+    modalLightCtn.setAttribute('aria-hidden','false');
+    blocPageLight.setAttribute('aria-hidden','true');
+    Array.prototype.forEach.call(unfocus,el => el.setAttribute("tabindex","-1"));
 }
 
 function closeLight(){
     modalLightCtn.style.display='none';
+    modalLightCtn.setAttribute('aria-hidden','true');
+    blocPageLight.setAttribute('aria-hidden','false');
     Array.prototype.forEach.call(allImgSlide,el => el.style.display='none');
+    Array.prototype.forEach.call(unfocus,el => el.setAttribute("tabindex","1"));
 }
 
 /*fonction d'ouverture de l'image ciblé par un click sur sa miniature
@@ -326,7 +369,7 @@ var index = 0;
 function openImgLight(idImg){
     var imgSlide = document.getElementById('slide-' + idImg);    
     imgSlide.style.display = 'block';
-    for(i=0;i<mediaArray.length;i++){
+    for(var i=0;i<mediaArray.length;i++){
         if(mediaArray[i].id == idImg){
             index = 0;
             index += i ;
@@ -376,12 +419,16 @@ function lightImageFactory(arrayMedia,name){
     if(arrayMedia.image){
         var imgLight = document.createElement('img');
         imgLight.setAttribute("src","../public/img/Sample Photos/" + name + "/" + arrayMedia.image);
+        imgLight.setAttribute("alt",arrayMedia.altText);
+        imgLight.setAttribute("aria-label",arrayMedia.altText);
         lightSlide.appendChild(imgLight);
     }    
     
     if(arrayMedia.video){
         var videoLight = document.createElement('video');
         videoLight.setAttribute("src","../public/img/Sample Photos/" + name + "/" + arrayMedia.video);
+        videoLight.setAttribute("alt",arrayMedia.altText);
+        videoLight.setAttribute("aria-label",arrayMedia.altText);
         videoLight.setAttribute("controls","");
         lightSlide.appendChild(videoLight);
     }
@@ -394,3 +441,171 @@ function lightImageFactory(arrayMedia,name){
     lightTitleSpan.innerHTML = arrayMedia.title;
     lightTitleCtn.appendChild(lightTitleSpan);
 } 
+
+/******************************************************************************************/
+/******************************************************************************************/
+/* Partie modale formulaire */
+
+/*déclaration des variables correspondant aux éléments du formulaire*/
+
+const modalFormBg = document.querySelector(".modalForm-ctn");
+const modalFormBtn = document.querySelectorAll(".banner-btn");
+const modalFormCross = document.querySelectorAll(".form-closeCross-btn");
+const unfocusForm = document.getElementsByClassName("unfocus");
+const blocPage = document.getElementById("blocpage");
+
+/*event lors du clique sur les boutons "contactez-moi" et "croix"*/
+
+modalFormBtn.forEach((btn) => btn.addEventListener("click", launchModalForm));
+modalFormCross.forEach((btn) => btn.addEventListener("click", closeModalForm));
+
+function launchModalForm() {
+  modalFormBg.style.display = "block";
+  modalFormBg.setAttribute('aria-hidden','false');
+  blocPage.setAttribute('aria-hidden','true');
+  Array.prototype.forEach.call(unfocusForm,el => el.setAttribute("tabindex","-1"));
+}
+
+function closeModalForm() {
+  modalFormBg.style.display = "none";
+  modalFormBg.setAttribute('aria-hidden','true');
+  blocPage.setAttribute('aria-hidden','false');
+  Array.prototype.forEach.call(unfocusForm,el => el.setAttribute("tabindex","1"));
+}
+
+/*déclaration des éléments du formulaire, inputs,
+ bouton de soumission et regex de validation*/
+
+const btnSubmit = document.getElementById("submit-btn");
+const firstName = document.getElementById("firstName");
+const lastName = document.getElementById("lastName");
+const email = document.getElementById("email");
+const message = document.getElementById("message");
+
+const regexLetter = /^[a-zA-Zéèêëàùûôçï]+$/;
+const regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,3}$/;
+const regexMsg = /^[a-zA-Zéèêëàùûôçï0-9.!#$%&'*+/=?()_~'-]+$/;
+
+/*fonctions permettants de valider les champs remplis par l'utilisateur*/
+
+function firstValid() {
+  if (
+    firstName.value !== null &&
+    firstName.value.length >= 2 &&
+    firstName.value.match(regexLetter)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function lastValid() {
+  if (
+    lastName.value !== null &&
+    lastName.value.length >= 2 &&
+    lastName.value.match(regexLetter)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function emailValid() {
+  if (email.value !== null && email.value.match(regexEmail)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function msgValid() {
+    if (
+      message.value !== null &&
+      message.value.length >= 2 &&
+      message.value.match(regexMsg)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+/*tableau d'objet regroupant résultat de validation, id du span, et intitulé du message d'erreur*/
+
+let functionMessage = [
+  {
+    result: firstValid(),
+    errorId: "firstError",
+    msgError: "Veuillez entrer 2 caractères ou plus pour le champ du prénom.",
+  },
+  {
+    result: lastValid(),
+    errorId: "lastError",
+    msgError: "Veuillez entrer 2 caractères ou plus pour le champ du nom.",
+  },
+  {
+    result: emailValid(),
+    errorId: "emailError",
+    msgError: "Veuillez entrer une adresse e-mail valide.",
+  },
+  {
+    result: msgValid(),
+    errorId: "msgError",
+    msgError: "Veuillez entrer un message valide.",
+  },
+];
+
+/*event lors du clique sur le bouton envoyer*/
+
+btnSubmit.addEventListener("click", validCycle);
+
+/*fonction appelant trois fonctions du cycle de validation*/
+
+function validCycle(event) {
+  update(event);
+  validOrNot(event);
+  validForm(event);
+}
+
+/*fonction mettant à jour les résultats des fonctions
+ de validation de champs dans le tableau d'objets*/
+
+function update(){
+    functionMessage[0].result = firstValid();
+    functionMessage[1].result = lastValid();
+    functionMessage[2].result = emailValid();
+    functionMessage[3].result = msgValid();
+}
+
+/*fonction permettant de parcourir le tableau d'objets
+ et d'écrire ou non les messages d'erreurs*/
+
+function validOrNot(){
+    for(var i = 0 ; i < functionMessage.length ; i++){    
+      if(functionMessage[i].result == false){
+        document.getElementById(functionMessage[i].errorId).innerHTML = functionMessage[i].msgError;
+      }else{
+        document.getElementById(functionMessage[i].errorId).innerHTML = "";
+      }
+    }
+  }
+
+/*fonction de validation de formulaire si tous les champs saisis sont corrects*/
+
+function validForm(event) {
+  if (firstValid() && lastValid() && emailValid() && msgValid()) {
+    modalFormBg.style.display = "none";
+    event.preventDefault();
+    console.log('Prénom: ' + firstName.value);
+    console.log('Nom: ' + lastName.value);
+    console.log('Email: ' + email.value);
+    document.getElementById('form').reset();
+    return true;
+  } else {
+    event.preventDefault();
+    return false;
+  }
+}
+

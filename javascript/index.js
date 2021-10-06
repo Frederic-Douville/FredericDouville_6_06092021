@@ -26,12 +26,12 @@ myfetch.then(response => {
         }else{
             tag='';
             tag += strTag[2];
-        };
+        }
         tagFilter(data.photographers);         
     }));   
     
 }).catch(err => {
-    alert('error');
+    alert('error:' + err);
 });
 
 
@@ -50,27 +50,28 @@ window.addEventListener("scroll",function(){
 /*fonction de création des vignettes de photographes*/
 
 function thumbnailFactory(array){
-    for(i=0;i<array.length;i++){
+    for(var i=0;i<array.length;i++){
     document.getElementById("portrait_"+i).src ="./public/img/Sample Photos/Photographers ID Photos/" + array[i].portrait ;
     document.getElementById("name_"+i).innerHTML = array[i].name;
+    document.getElementById("link_"+i).setAttribute("aria-label",array[i].name);
     document.getElementById("place_"+i).innerHTML = array[i].city + ", " + array[i].country;
     document.getElementById("tagline_"+i).innerHTML = array[i].tagline ;
     document.getElementById("price_"+i).innerHTML = array[i].price + "&euro;/jour";
   
     var tagArray=[];
     tagArray=array[i].tags;
-    for(j=0;j<tagArray.length;j++){                     
+    for(var j=0;j<tagArray.length;j++){                     
             tagFactory(tagArray[j],i);
         }  
-    }
-    
+    }    
 }
 
 /*fonction de création des tags*/
 
 function tagFactory(tagArray,index){           
-    var tagDiv = document.createElement("div");
-    tagDiv.className = 'tag tag-tbn' + " " + tagArray;     
+    var tagDiv = document.createElement("button");
+    tagDiv.className = 'tag tag-tbn' + " " + tagArray;
+    tagDiv.setAttribute('aria-label',tagArray);     
 
     var tagContent = document.createTextNode("#"+tagArray);
     tagDiv.appendChild(tagContent);
@@ -103,10 +104,10 @@ function urlArrayVerif(urlarray){
 
 function tagFilter(array){
     //console.log(tag);            
-    for(i=0;i<array.length;i++){
+    for(var i=0;i<array.length;i++){
         var tagArray=[];
         tagArray=array[i].tags;            
-        for(j=0;j<tagArray.length;j++){
+        for(var j=0;j<tagArray.length;j++){
             if(tag == tagArray[j]){               
                 document.getElementById(array[i].id).style.display="flex";
                 break;
