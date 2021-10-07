@@ -52,6 +52,7 @@ window.addEventListener("scroll",function(){
 function thumbnailFactory(array){
     for(var i=0;i<array.length;i++){
     document.getElementById("portrait_"+i).src ="./public/img/Sample Photos/Photographers ID Photos/" + array[i].portrait ;
+    document.getElementById("portrait_"+i).setAttribute('alt',array[i].name);
     document.getElementById("name_"+i).innerHTML = array[i].name;
     document.getElementById("link_"+i).setAttribute("aria-label",array[i].name);
     document.getElementById("place_"+i).innerHTML = array[i].city + ", " + array[i].country;
