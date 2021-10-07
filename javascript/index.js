@@ -50,11 +50,8 @@ window.addEventListener("scroll",function(){
 /*fonction de création des vignettes de photographes*/
 
 function thumbnailFactory(array){
-    for(var i=0;i<array.length;i++){
-    document.getElementById("portrait_"+i).src ="./public/img/Sample Photos/Photographers ID Photos/" + array[i].portrait ;
-    document.getElementById("portrait_"+i).setAttribute('alt',array[i].name);
-    document.getElementById("name_"+i).innerHTML = array[i].name;
-    document.getElementById("link_"+i).setAttribute("aria-label",array[i].name);
+    for(var i=0;i<array.length;i++){    
+    portraitFactory(array[i],i);   
     document.getElementById("place_"+i).innerHTML = array[i].city + ", " + array[i].country;
     document.getElementById("tagline_"+i).innerHTML = array[i].tagline ;
     document.getElementById("price_"+i).innerHTML = array[i].price + "&euro;/jour";
@@ -65,6 +62,23 @@ function thumbnailFactory(array){
             tagFactory(tagArray[j],i);
         }  
     }    
+}
+
+/*fonction de création de la photo et du nom de la vignette*/
+
+function portraitFactory(array,index){
+    var linkCtn = document.getElementById('link_'+index);
+    linkCtn.setAttribute("aria-label",array.name);
+    var linkTitle = document.createElement('h2');
+    linkTitle.className = "photographer-tbn-name";
+    linkTitle.innerHTML = array.name;
+    linkCtn.appendChild(linkTitle);
+
+    var portraitCtn = document.getElementById('portraitCtn_'+index);
+    var portraitImg = document.createElement('img');
+    portraitImg.src = "./public/img/Sample Photos/Photographers ID Photos/" + array.portrait ;
+    portraitImg.setAttribute('alt',array.name);
+    portraitCtn.appendChild(portraitImg);
 }
 
 /*fonction de création des tags*/

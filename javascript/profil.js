@@ -87,10 +87,7 @@ function photoDom(arrayMedia,name){
 function bannerFactory(array){
     for(var i=0;i<array.length;i++){
         if(array[i].id == idPhoto){
-        document.getElementById("portrait").src ="../public/img/Sample Photos/Photographers ID Photos/" + array[i].portrait ;
-        document.getElementById("portrait").setAttribute('alt',array[i].name);
-        document.getElementById("name").innerHTML = array[i].name;
-        document.getElementById("name").setAttribute("aria-label",array[i].name);
+        portraitFactory(array[i]);
         document.getElementById("formName").innerHTML = array[i].name;        
         document.getElementById("place").innerHTML = array[i].city + ", " + array[i].country;
         document.getElementById("tagline").innerHTML = array[i].tagline ;
@@ -103,6 +100,26 @@ function bannerFactory(array){
             }  
         }
     }       
+}
+
+/*fonction de création de la photo et du nom de la vignette*/
+
+function portraitFactory(array){
+  var photoBanCtn = document.getElementById('photoBannerCtn');
+  var photoTitle = document.createElement('h1');
+  photoTitle.className = "photographer-banner-name unfocus";
+  photoTitle.innerHTML = array.name;
+  photoTitle.setAttribute('tabindex','1');
+  photoTitle.setAttribute('aria-label',array.name)
+  photoBanCtn.appendChild(photoTitle);
+
+  var portraitCtn = document.getElementById('bannerImg');
+  var portraitImg = document.createElement('img');
+  portraitImg.id = "portrait"
+  portraitImg.src = "../public/img/Sample Photos/Photographers ID Photos/" + array.portrait ;
+  portraitImg.setAttribute('alt',array.name);
+  portraitImg.setAttribute('aria-label',array.name);
+  portraitCtn.appendChild(portraitImg);
 }
 
 /*fonction de création des tags*/

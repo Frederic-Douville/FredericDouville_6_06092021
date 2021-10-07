@@ -12,13 +12,19 @@
     background-color: $colorGrey-1;
     border-radius: 5px;
     margin-bottom: 3em;
-    &-desc{
+    &-ctn{
         @include flex_dlc(row,flex-start,space-between);
-        height:100%;        
+        height:100%; 
+        &-2{
+            @include flex-dlc(column,flex-start,center)
+        }       
     }
-    &-ID{
-        @include flex_dlc(column,flex-start,center); 
-        height: 100%;            
+    &-Title{
+        @include flex_dlc(column,flex-start,center);            
+    }
+    &-desc{
+        @include flex-dlc(column,flex-start,center);
+
     }
     &-name{
         @include font_CWStSi($colorRed-2,400,normal,64px);

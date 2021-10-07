@@ -339,19 +339,30 @@ a {
   border-radius: 5px;
   margin-bottom: 3em;
 }
-.photographer-banner-desc {
+.photographer-banner-ctn {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
   height: 100%;
 }
-.photographer-banner-ID {
+.photographer-banner-ctn-2 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  height: 100%;
+}
+.photographer-banner-Title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.photographer-banner-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 .photographer-banner-name {
   color: #d3573c;
