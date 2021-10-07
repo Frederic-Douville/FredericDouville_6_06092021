@@ -87,8 +87,8 @@ function photoDom(arrayMedia,name){
 function bannerFactory(array){
     for(var i=0;i<array.length;i++){
         if(array[i].id == idPhoto){
-        document.getElementById("title").innerText=array[i].name;
         document.getElementById("portrait").src ="../public/img/Sample Photos/Photographers ID Photos/" + array[i].portrait ;
+        document.getElementById("portrait").setAttribute('alt',array[i].name);
         document.getElementById("name").innerHTML = array[i].name;
         document.getElementById("name").setAttribute("aria-label",array[i].name);
         document.getElementById("formName").innerHTML = array[i].name;        
@@ -112,7 +112,8 @@ function tagFactory(tagArray){
     tagDiv.className = 'tag tag-banner unfocus' + " " + tagArray;
     tagDiv.setAttribute("href","../index.html?" + tagArray);
     tagDiv.setAttribute("tabindex","1");
-    tagDiv.setAttribute('aria-label',tagArray);   
+    tagDiv.setAttribute('aria-label','Tag');
+    tagDiv.setAttribute('role','link');   
 
     var tagContent = document.createTextNode("#"+tagArray);
     tagDiv.appendChild(tagContent);
@@ -140,6 +141,7 @@ function pictureFactory(arrayMedia,name){
         img.setAttribute("src","../public/img/Sample Photos/" + name + "/" + arrayMedia.image);
         img.setAttribute("alt",arrayMedia.altText);
         img.setAttribute("aria-label",arrayMedia.altText);
+        img.setAttribute("role","link");
         imgCtn.appendChild(img);
     }    
     
@@ -148,6 +150,7 @@ function pictureFactory(arrayMedia,name){
         video.setAttribute("src","../public/img/Sample Photos/" + name + "/" + arrayMedia.video);
         video.setAttribute("alt",arrayMedia.altText);
         video.setAttribute("aria-label",arrayMedia.altText);
+        video.setAttribute("role","link");
         imgCtn.appendChild(video);
     }   
                     

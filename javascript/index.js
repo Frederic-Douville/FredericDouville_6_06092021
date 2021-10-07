@@ -71,7 +71,8 @@ function thumbnailFactory(array){
 function tagFactory(tagArray,index){           
     var tagDiv = document.createElement("button");
     tagDiv.className = 'tag tag-tbn' + " " + tagArray;
-    tagDiv.setAttribute('aria-label',tagArray);     
+    tagDiv.setAttribute('aria-label','Tag');
+    tagDiv.setAttribute('role','link');     
 
     var tagContent = document.createTextNode("#"+tagArray);
     tagDiv.appendChild(tagContent);

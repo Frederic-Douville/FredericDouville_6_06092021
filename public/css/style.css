@@ -37,7 +37,6 @@ a {
 }
 .tag:hover {
   background-color: #901c1c;
-  border-color: #901c1c;
   color: white;
   cursor: pointer;
 }
@@ -88,7 +87,7 @@ a {
   font-style: normal;
   font-size: 18px;
   text-align: center;
-  line-height: 23, 44px;
+  line-height: 23px;
 }
 
 @keyframes scroll-link-appearance {
@@ -306,7 +305,7 @@ a {
   font-weight: 400;
   font-style: normal;
   font-size: 9px;
-  line-height: 11, 72px;
+  line-height: 11px;
   padding: 0.2em 0 0.2em 0;
 }
 .photographer-tag-ctn {
@@ -885,7 +884,6 @@ a {
   }
   .form-data textarea {
     font-size: 24px;
-    rows: 5;
   }
   .form-data-button {
     display: flex;

@@ -119,8 +119,7 @@
                 font-size: 24px;
             }
             & textarea{
-                font-size: 24px;
-                rows:5;
+                font-size: 24px;                
             }
             &-button{
                 @include flex-dlc(row,center,center);

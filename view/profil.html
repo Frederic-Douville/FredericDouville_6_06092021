@@ -5,13 +5,13 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../public/css/style.css" />
-	<title id="title"></title>
+	<title>FishEye Photographe</title>
 </head>
 <body>
 	<div class=blocpage-ctn id="blocpage" >
 	<header>		
 		<div class="logo-ctn-page">
-			<a class="main-page-link unfocus" href="../index.html" tabindex="1" alt="Fisheye Home page">
+			<a class="main-page-link unfocus" href="../index.html" tabindex="1" aria-label="Fisheye Home page" role="link">
 				<svg viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M24.7206 0.911621V6.51058H6.31164V17.5783H21.4333V22.9168H6.31164V39.1929H0V0.911621H24.7206Z" fill="#911C1C"/>
 					<path d="M34.5826 1.04167C35.2401 1.69271 35.6346 2.60417 35.6346 3.64583C35.6346 4.6875 35.2401 5.46875 34.5826 6.11979C33.9252 6.77083 33.0047 7.16146 31.9528 7.16146C30.9008 7.16146 30.1119 6.77083 29.3229 6.11979C28.6655 5.46875 28.271 4.55729 28.271 3.64583C28.271 2.60417 28.6655 1.82292 29.3229 1.04167C29.9804 0.390625 30.9008 0 31.9528 0C33.0047 0 33.7937 0.390625 34.5826 1.04167ZM34.8456 11.1979V39.1927H28.9285V11.1979H34.8456Z" fill="#911C1C"/>
@@ -28,34 +28,34 @@
 		<section class="photographer-banner">
 			<div class="photographer-banner-desc">
 				<div class="photographer-banner-ID" >
-					<h1 class="photographer-banner-name unfocus" id="name" tabindex="1"></h1>
-					<span class="photographer-banner-place unfocus" id="place" tabindex="1"></span>
-					<span class="photographer-banner-phrase unfocus" id="tagline" tabindex="1"></span>
+					<h1 class="photographer-banner-name unfocus" id="name" role="heading" tabindex="1"> </h1>
+					<span class="photographer-banner-place unfocus" id="place" role="text" tabindex="1"></span>
+					<span class="photographer-banner-phrase unfocus" id="tagline" role="text" tabindex="1"></span>
 					<div class="photographer-banner-tag" id="tag-ctn">					
 					</div>
 				</div>
 				<div class="banner-button-ctn">
-					<button class="banner-btn unfocus" tabindex="1" aria-label="contactez-moi">Contactez-moi</button>
+					<button class="banner-btn unfocus" tabindex="1" aria-label="contactez-moi" role="button">Contactez-moi</button>
 				</div>
 			</div>			
 			<div class="banner-img-ctn">
 				<div class="banner-img">
-					<img id="portrait" />
+					<img id="portrait" src="" alt="" role="img"/>
 				</div>
 			</div>
 		</section>
 
-		<section class="photos-option-ctn">
-			<div class="option-phrase"><label for="optionBtnArrow">Trier par</label></div> 
+		<div class="photos-option-ctn">
+			<div class="option-phrase"><label for="optionBtnArrow" aria-label="Trier par">Trier par</label></div> 
 			<div class="option-btn" id="optionBtn">
 				<div class="option-btn-first" id="optionBtnFirst" role="listbox" aria-haspopup="true">
-					<button class="option-btn-choice unfocus" id="choice-0"></button>
-					<button class="option-btn-arrow optbtn-arrow-down arrow-down-btn unfocus" id="optionBtnArrow">
+					<button class="option-btn-choice unfocus" id="choice-0" role="button"></button>
+					<button class="option-btn-arrow optbtn-arrow-down arrow-down-btn unfocus" id="optionBtnArrow" role="button">
 						<svg class="arrow-down" width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M1.88 10.5466L8 4.43996L14.12 10.5466L16 8.66663L8 0.66663L1.64355e-07 8.66663L1.88 10.5466Z" fill="white"/>
 						</svg>
 					</button>
-					<button class="option-btn-arrow optbtn-arrow-up arrow-up-btn unfocus">
+					<button class="option-btn-arrow optbtn-arrow-up arrow-up-btn unfocus" role="button">
 						<svg class="arrow-up" width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M1.88 10.5466L8 4.43996L14.12 10.5466L16 8.66663L8 0.66663L1.64355e-07 8.66663L1.88 10.5466Z" fill="white"/>
 						</svg>
@@ -63,12 +63,12 @@
 			 	</div>
 				<div class="option-dropdown" id="option-dropdown">
 					<div class="option-btn-line"></div>
-					<button class="option-btn-choice unfocus"  id="choice-1"></button>
+					<button class="option-btn-choice unfocus" id="choice-1" role="button"></button>
 					<div class="option-btn-line"></div>
-					<button class="option-btn-choice unfocus" id="choice-2"></button>
+					<button class="option-btn-choice unfocus" id="choice-2" role="button"></button>
 				</div>
 			</div>
-		</section>
+		</div>
 
 		<div class="likePrice-ctn">
 			<div class="likePrice-ctn-2">
@@ -85,25 +85,25 @@
 		</div>
 
 		<div class="banner-button-ctn-mobile">
-			<button class="banner-btn" tabindex="1">Contactez-moi</button>
+			<button class="banner-btn" tabindex="1" aria-label="contactez-moi" role="button">Contactez-moi</button>
 		</div>
 
-		<section class="modalLight-ctn" id="modalLightCtn" aria-label="vue image agrandie" aria-hidden="true" role="img">
+		<div class="modalLight-ctn" id="modalLightCtn" aria-label="vue image agrandie" aria-hidden="true" role="dialog">
 			<div class="light-ctn">				
 				<div class="light-img-ctn">
-					<button class="light-arrow light-left-arrow" id="prev" aria-label="image précédente">
+					<button class="light-arrow light-left-arrow" id="prev" aria-label="image précédente" role="link">
 						<svg width="30" height="48" viewBox="0 0 30 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M29.6399 42.36L11.3199 24L29.6399 5.64L23.9999 -2.46532e-07L-0.000107861 24L23.9999 48L29.6399 42.36Z" fill="#911C1C"/>
 						</svg>
 					</button>
 					<div class="light-img" id="lightImgCtn"></div>
 					<div class="light-right-ctn">
-						<button class="light-closeCross" id="closeLightCross" aria-label="fermeture">
+						<button class="light-closeCross" id="closeLightCross" aria-label="fermeture" role="button">
 							<svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M42 4.23L37.77 0L21 16.77L4.23 0L0 4.23L16.77 21L0 37.77L4.23 42L21 25.23L37.77 42L42 37.77L25.23 21L42 4.23Z" fill="#911C1C"/>
 							</svg>
 						</button>
-						<button class="light-arrow light-right-arrow" id="next" aria-label="image suivante">
+						<button class="light-arrow light-right-arrow" id="next" aria-label="image suivante" role="link">
 							<svg width="30" height="48" viewBox="0 0 30 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M0.360108 5.64L18.6801 24L0.360107 42.36L6.00011 48L30.0001 24L6.00011 3.88195e-06L0.360108 5.64Z" fill="#911C1C"/>
 							</svg>
@@ -112,14 +112,14 @@
 					</div>					
 				</div>
 			</div>
-		</section>
+		</div>
 
-		<section class="modalForm-ctn" aria-hidden="true" role="form" aria-describedby="formTitle" aria-labelledby="formTitle">
+		<div class="modalForm-ctn" aria-hidden="true" aria-describedby="formTitle" aria-labelledby="formTitle" role="dialog">
 			<div class="form-ctn">
 				<div class="form-body">
 					<div class="form-title-ctn" >
-						<h1 class="form-title" id="formTitle">Contactez-moi<br/><span id="formName"></span></h1>
-						<button class="form-closeCross-btn">
+						<h1 class="form-title" id="formTitle" role="heading">Contactez-moi<br/><span id="formName"></span></h1>
+						<button class="form-closeCross-btn" role="button">
 						<svg class="form-closeCross" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M42 4.23L37.77 0L21 16.77L4.23 0L0 4.23L16.77 21L0 37.77L4.23 42L21 25.23L37.77 42L42 37.77L25.23 21L42 4.23Z" fill="white"/>
 						</svg>
@@ -127,8 +127,8 @@
 					</div>
 					<form class="form-input" id="form"  method="get" onsubmit="return validate(e);">
 						<div class="form-data">
-							<label id="first-name" for="firstName">Prénom</label><br />
-							<input class="input-text" id="firstName" name="firstName" type="text" aria-labelledby="first-name"/><br />
+							<label id="first-name" for="firstName" role="label">Prénom</label><br />
+							<input class="input-text" id="firstName" name="firstName" type="text" aria-labelledby="first-name" role="text field"/><br />
 							<span class="form-error" id="firstError"></span>
 						</div>
 						<div class="form-data">
@@ -143,23 +143,23 @@
 						</div>
 						<div class="form-data">
 							<label id="msg-label" for="message">Votre message</label><br />
-							<textarea class="input-msg" id="message" name="message" type="text" rows="3" aria-labelledby="msg-label"></textarea><br />
+							<textarea class="input-msg" id="message" name="message" rows="3" aria-labelledby="msg-label"></textarea><br />
 							<span class="form-error" id="msgError"></span>
 						</div>
 						<div class="form-data form-data-button">
 							<div>
-							<input class="form-button" id="submit-btn" type="submit" value="Envoyer"/> 
+							<input class="form-button" id="submit-btn" type="submit" value="Envoyer" role="button"/> 
 							</div>
 						</div>
 					</form>
 				</div>
 			</div>
-		</section>
+		</div>
 
-		<section class="photo-list-ctn" id="photo-list-container">		
+		<div class="photo-list-ctn" id="photo-list-container">		
 			
 			<div class="space-bottom"></div>
-		</section>
+		</div>
 		
 	</main>
 </div>
