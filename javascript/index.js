@@ -69,7 +69,6 @@ function thumbnailFactory(array){
 function portraitFactory(array,index){
     var linkCtn = document.getElementById('link_'+index);
     linkCtn.setAttribute("aria-label",array.name);
-    linkCtn.setAttribute("title","Vers le profil de " + array.name);
     var linkTitle = document.createElement('h2');
     linkTitle.className = "photographer-tbn-name";
     linkTitle.innerHTML = array.name;
